@@ -1,0 +1,260 @@
+$color-dark: #303030;
+$color-soft-dark: #535353;
+$color-text: #F1F1F6;
+$color-accent: #FBD825;
+$color-soft-accent: #AC890E;
+
+
+* {
+    font-family: 'Montserrat', sans-serif; 
+}
+
+body {
+    background-color: $color-dark
+}
+
+body::-webkit-scrollbar,
+main .result_message .result .found_message .message::-webkit-scrollbar {
+    width: 8px;
+    background-color: $color-soft-dark;
+}
+
+body::-webkit-scrollbar-thumb,
+main .result_message .result .found_message .message::-webkit-scrollbar-thumb {
+    background-color: $color-text;
+    border-radius: 1em;
+}
+
+main {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: row;
+
+    & .logo {
+        width: 10vw;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: .5em 0 0;
+        color: $color-text;
+    }
+    
+    & .input_message{
+        width: 60vw;
+        padding: 15vh 0 0;
+        display: flex;
+        justify-content: center;
+
+        & .message_container{
+            width: 70%;
+
+            & textarea{
+                width: 100%;
+                resize: none;
+                background-color: transparent;
+                font-size: 2em;
+                height: 60vh;
+                border: none;
+                padding: 0;
+                color: $color-text;
+                font-weight: 400;
+                
+                &::placeholder{
+                    color: $color-text;
+                }
+
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+
+        & .bottom {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            padding: 1em 0 0;
+            
+            & .buttons{
+                gap: 1em;
+                display: flex;
+                flex-direction: row;
+            }
+
+            & small{
+                color: $color-soft-accent;
+                font-weight: 500;
+                display: flex;
+                flex-direction: row;
+                align-items: end;
+            }
+
+            & small svg {
+                width: 1.2em;
+                padding: 0 0.25em 0 0;
+            }
+        }
+    }
+    
+    & .result_message{
+        width: 30vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & .result {
+            background-color: $color-soft-dark;
+            height: 90vh;
+            width: 75%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 2em;
+            box-shadow: 0em 0em 2em 0.1em #00000033;
+
+            & .found_message,
+            & .not_found_message {
+                padding: 2em;
+            }
+
+            & .not_found_message {
+                text-align: center;
+                color: $color-text;
+                
+                & img {
+                    width: 100%;
+                }
+            }
+            
+            & .found_message {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                display: none;
+                height: 96%;
+                color: $color-text;
+                
+                & .message {
+                    overflow: auto;
+                    margin: 1em 0 0;
+                }
+
+                & h3 {
+                    font-weight: 400;
+                    font-size: 1.2em;
+                }
+
+                & button {
+                    margin: 2em 0;
+                }
+            }
+        }
+    }
+
+    & .btn {
+        padding: .75em;
+        width: 100%;
+        border-radius: 1em;
+        font-weight: 500;
+        border: 2px solid $color-accent;
+        transition: border-color 250ms, backgorund-color 250ms;
+
+        &:hover {
+            cursor: pointer;
+        }
+        
+        &.btn-primary{
+            background-color: $color-accent;
+            font-weight: 600;
+            color: $color-dark;
+            &:hover{
+                background-color: $color-soft-accent;
+                border-color: $color-soft-dark;
+            }
+        }
+
+        &.btn-secondary{
+            background-color: transparent;
+            color: $color-accent;
+            &:hover{
+                background-color: $color-dark;
+                border-color: $color-soft-accent;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1400px) {
+    main .input_message {
+        width: 55vw;
+    }
+
+    main .result_message {
+        width: 35vw;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    main {
+        flex-direction: column;
+    }
+    main .logo,
+    main .input_message,
+    main .result_message {
+        width: 100%;
+    }
+    main .logo {
+        justify-content: flex-start;
+        padding: 2em 0 1em;
+
+        & h1 {
+            padding: 0 0 0 1em;
+        }
+    }
+
+    main .input_message {
+        padding: 5vh 0 0;
+        & .message_container {
+            width: 100%;
+            padding: 2em;
+        }
+        & .message_container textarea {
+            height: 50vh;
+        }
+    }
+    main .result_message .result {
+        width: 100%;
+        margin: 2em;
+        padding: 1em 0;
+        height: auto;
+        max-height: 75vh;
+
+        & .not_found_message img{
+            display: none;
+        }
+
+        & .found_message button {
+            margin: 1.5em 0 0;
+        }
+        
+        & .found_message .message {
+            margin: 0 0 0;
+            max-height: 65vh;
+        }
+    }
+}
+
+@media screen and (max-width: 757px) {
+    main .input_message{
+        & .bottom {
+            & .buttons{
+                flex-direction: column;
+            }
+    
+            & small{
+                align-items: center;
+            }
+        }
+    }
+}

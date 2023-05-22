@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>LI.dev : Encriptador</title>
+  </head>
+  <body>
+    <main>
+      <section class="logo">
+        <h1>
+          <span class="logo__item">LI</span><span class="logo__item">.dev</span>
+        </h1>
+      </section>
+      <section class="input_message">
+        <div class="message_container">
+          <textarea
+            name=""
+            id="inputMessage"
+            placeholder="Ingrese el texto aquí"
+          ></textarea>
+          <div class="bottom">
+            <small>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              Solo letras minúsculas y sin acentos
+            </small>
+            <div class="buttons">
+              <button class="btn btn-primary" id="btnEncrypt">Encriptar</button>
+              <button class="btn btn-secondary" id="btnDecrypt">
+                Desencriptar
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="result_message">
+        <div class="result">
+          <div class="not_found_message">
+            <img src="./assets/img/search_text.png" alt="No encontrado" />
+            <h2>Ningún menssaje fue encontrado</h2>
+            <p>Ingresa el texto que deseas encriptar o desencriptar</p>
+          </div>
+          <div class="found_message">
+            <div class="message">
+              <h3 id="resultMessage">Lorem, ipsum dolor.</h3>
+            </div>
+            <button class="btn btn-secondary" id="btnCopy">Copiar</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="/assets/js/scripts.js"></script>
+  </body>
+</html>
